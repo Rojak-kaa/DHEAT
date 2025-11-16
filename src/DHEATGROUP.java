@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
-// Manager Class
+
 class Manager {
     private String name;
     private String id;
@@ -19,7 +19,7 @@ class Manager {
     public String getId() { return id; }
 }
 
-// Kitchen Staff Class
+
 class KitchenStaff {
     private String name;
     private String id;
@@ -45,7 +45,7 @@ class KitchenStaff {
     public String getId() { return id; }
 }
 
-// Casher Class
+
 class Casher {
     private String name;
     private String id;
@@ -75,7 +75,7 @@ class Casher {
     public String getId() { return id; }
 }
 
-// Waiter Class
+
 class Waiter {
     private String name;
     private String id;
@@ -117,10 +117,9 @@ class Waiter {
     public String getId() { return id; }
 }
 
-// Main Restaurant System
 public class DHEATGROUP {
     
-    // Menu Data
+    
     private static final int APPETIZER_SIZE = 4;
     private static final String[] APPETIZER_ITEMS = {"Spring Rolls", "Garlic Bread", "Chips and Salsa", "Big Shrimp"};
     private static final double[] APPETIZER_PRICE = {5.99, 4.00, 6.00, 7.00};
@@ -137,20 +136,19 @@ public class DHEATGROUP {
     private static final String[] BEVERAGE_ITEMS = {"Soft Drinks", "Fresh Juices", "Coffee"};
     private static final double[] BEVERAGE_PRICE = {2.49, 5.56, 1.56};
     
-    // Staff Objects
+    
     private static Waiter waiter;
     private static Casher casher;
     private static KitchenStaff kitchenStaff;
     private static Manager manager;
     
-    // System Variables
+    
     static Scanner scanner = new Scanner(System.in);
     static double totalSales = 0;
     static int orderCount = 0;
     static ArrayList<String> orders = new ArrayList<>();
-    
-    public static void main(String[] args) {
-        // Initialize staff
+     public static void main(String[] args) {
+        
         waiter = new Waiter("John", "W001");
         casher = new Casher("Mike", "C001");
         kitchenStaff = new KitchenStaff("Chef David", "K001");
@@ -195,7 +193,7 @@ public class DHEATGROUP {
         scanner.close();
     }
     
-    // Waiter Menu
+    
     private static void waiterMenu() {
         int choice;
         waiter.loginAcc();
@@ -237,7 +235,7 @@ public class DHEATGROUP {
         } while(choice != 5);
     }
     
-    // Casher Menu
+    
     private static void casherMenu() {
         int choice;
         
@@ -277,7 +275,7 @@ public class DHEATGROUP {
         } while(choice != 5);
     }
     
-    // Kitchen Staff Menu
+    
     private static void kitchenMenu() {
         int choice;
         
@@ -312,7 +310,7 @@ public class DHEATGROUP {
         } while(choice != 4);
     }
     
-    // Manager Menu
+    
     private static void managerMenu() {
         int choice;
         
@@ -345,7 +343,7 @@ public class DHEATGROUP {
         } while(choice != 4);
     }
     
-    // Display complete menu
+    
     private static void displayMenu() {
         System.out.println("\n========== RESTAURANT MENU ==========");
         displayCategory("APPETIZERS", APPETIZER_ITEMS, APPETIZER_PRICE);
@@ -354,7 +352,7 @@ public class DHEATGROUP {
         displayCategory("BEVERAGES", BEVERAGE_ITEMS, BEVERAGE_PRICE);
     }
     
-    // Display individual category
+    
     private static void displayCategory(String categoryName, String[] items, double[] prices) {
         System.out.println("\n" + categoryName);
         System.out.println("─".repeat(40));
@@ -363,7 +361,7 @@ public class DHEATGROUP {
         }
     }
     
-    // Place order functionality
+    
     private static void placeOrder() {
         System.out.print("\nEnter table number: ");
         int tableNumber = scanner.nextInt();
@@ -415,7 +413,7 @@ public class DHEATGROUP {
         }
     }
     
-    // Order from specific category
+   
     private static double orderFromCategory(String categoryName, String[] items, double[] prices, int size, StringBuilder orderDetails) {
         System.out.println("\n" + categoryName);
         for (int i = 0; i < size; i++) {
@@ -440,7 +438,7 @@ public class DHEATGROUP {
         return itemCost;
     }
     
-    // Payment processing
+    
     private static void processPayment(double amount, int tableNumber) {
         System.out.println("\n========== PAYMENT ==========");
         System.out.printf("Total Amount: $%.2f\n", amount);
@@ -478,7 +476,7 @@ public class DHEATGROUP {
         System.out.println("\nThank you for your order!");
     }
     
-    // View orders list
+    
     private static void viewOrdersList() {
         if(orders.isEmpty()) {
             System.out.println("No orders yet!");
